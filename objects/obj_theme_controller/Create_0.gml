@@ -1,0 +1,1 @@
+global.Theme_mainpage_fontcolor = c_white;
