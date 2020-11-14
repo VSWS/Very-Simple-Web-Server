@@ -1,7 +1,5 @@
 function vsws_core_find_file()
 {
-	if (ds_map_find_value(request_db,"Request-Valid") == true) //Checks that the request is in fact valid
-		{
 		   //If the GET is empty (ie, www.example.com/ ) the server selects the file to look for as the default home file (by default, this is index.html - the existence of a index.php with PHP enabled supersedes this)
 			if (file_get_final == "")
 			{
@@ -43,5 +41,4 @@ function vsws_core_find_file()
 			
 				status_code = 404;
 			}
-		}
 }

@@ -4,18 +4,30 @@ function vsws_core_parse_request() {
 
 	request_db = ds_map_create(); //creates a new DS map called request_db
 
+	_malformed_request = false;
+	
 	body = false;
 
 	body_line_add = "";
 	
-	request = explode("\n",original_request); //Explodes the request line by line, as each line contains an individual part of the request
+	request = explode("\n",original_request[connection_id]); //Explodes the request line by line, as each line contains an individual part of the request
 
 	request_first_line = explode(" ",request[0]); //Explodes the first line of the request into seperate values - usually this line looks like "GET /somepage.html HTTP/1.1", which would be "[Request-Type] [Request-URL] [Request-HTTPv(ersion)]"
 	//Manually add the values we just exploded from the request line
-	ds_map_add(request_db,"Request-Type",request_first_line[0]);
-	ds_map_add(request_db,"Request-URL",request_first_line[1]);
-	ds_map_add(request_db,"Request-HTTPv",request_first_line[2]);
-
+	if (array_length(request_first_line) > 2)
+	{
+		ds_map_add(request_db,"Request-Type",request_first_line[0]);
+		ds_map_add(request_db,"Request-URL",request_first_line[1]);
+		ds_map_add(request_db,"Request-HTTPv",request_first_line[2]);
+	}
+	else
+	{
+		_malformed_request = true;
+	}
+	
+	if (_malformed_request == false)
+	{
+				show_message_async("not malformed alert")
 	//Adds the rest of the values to the DS map
 	for(i = 1; i < (array_length_1d(request)-2); i++)
 	{
@@ -56,17 +68,23 @@ function vsws_core_parse_request() {
 	//Explodes the complete file_get path so we can find the actual file name
 	file_get_final = explode("/",get[0]); 
 	file_get_final = file_get_final[array_length_1d(file_get_final)-1];
-
+	}
 
 	//Compatibility for 0.3.x, as we can only support GET in this version
-	if (ds_map_find_value(request_db,"Request-Type") == "GET" || ds_map_find_value(request_db,"Request-Type") == "POST")
+	if (_malformed_request == false)
 	{
-		ds_map_add(request_db,"Request-Valid",true);
+		if (ds_map_find_value(request_db,"Request-Type") == "GET" || ds_map_find_value(request_db,"Request-Type") == "POST")
+		{
+			ds_map_add(request_db,"Request-Valid",true);
+		}
+		else
+		{
+			ds_map_add(request_db,"Request-Valid",false);
+		}
 	}
 	else
 	{
 		ds_map_add(request_db,"Request-Valid",false);
+		show_message_async("Invalid");
 	}
-
-
 }

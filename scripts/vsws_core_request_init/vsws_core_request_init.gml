@@ -3,8 +3,4 @@
 function vsws_core_request_init(){
 	original_request = "";
 	old_val = "";
-	
-	current_input = buffer_read(async_load[? "buffer"], buffer_string);
-	
-    sock = async_load[? "id"]; //Gets the ID of the socket sending info, which we'll need to send stuff back
 }

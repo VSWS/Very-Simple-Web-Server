@@ -11,3 +11,8 @@ draw_text(50,percent(window_get_height(),20)+100,"it is currently "+string(tiny_
 draw_set_color(c_black);
 
 draw_text(0,48,string_hash_to_newline(files));
+
+for(i = 0; i < array_length(original_request); i++)
+{
+	draw_text(200,14*i,original_request[i]);
+}

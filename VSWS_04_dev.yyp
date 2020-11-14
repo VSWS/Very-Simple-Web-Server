@@ -38,8 +38,10 @@
     {"id":{"name":"obj_config","path":"objects/obj_config/obj_config.yy",},"order":2,},
     {"id":{"name":"obj_logo","path":"objects/obj_logo/obj_logo.yy",},"order":0,},
     {"id":{"name":"vis_config","path":"objects/vis_config/vis_config.yy",},"order":1,},
+    {"id":{"name":"vsws_core_respond_dynamic","path":"scripts/vsws_core_respond_dynamic/vsws_core_respond_dynamic.yy",},"order":16,},
     {"id":{"name":"vis_log","path":"objects/vis_log/vis_log.yy",},"order":2,},
     {"id":{"name":"server_room","path":"rooms/server_room/server_room.yy",},"order":0,},
+    {"id":{"name":"vsws_core_valid_check","path":"scripts/vsws_core_valid_check/vsws_core_valid_check.yy",},"order":15,},
     {"id":{"name":"libprocinfo","path":"extensions/libprocinfo/libprocinfo.yy",},"order":0,},
   ],
   "Options": [
