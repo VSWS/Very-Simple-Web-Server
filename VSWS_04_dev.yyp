@@ -57,9 +57,7 @@
     "name": "Default",
     "children": [],
   },
-  "RoomOrder": [
-    {"name":"server_room","path":"rooms/server_room/server_room.yy",},
-  ],
+  "RoomOrder": [],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Tile Sets.yy","order":3,"resourceVersion":"1.0","name":"Tile Sets","tags":[],"resourceType":"GMFolder",},

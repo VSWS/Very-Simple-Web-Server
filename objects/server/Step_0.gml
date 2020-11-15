@@ -12,7 +12,7 @@ for(i = 0; i < array_length(timer_active); i++)
 		{
 			timeout[i] = 0;
 			timer_active[i] = false;
-			show_message_async("Connection Timed Out");
+			//show_message_async("Connection Timed Out");
 			original_request[i] = "";
 			network_destroy(i);
 		}
