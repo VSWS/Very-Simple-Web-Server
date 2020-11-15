@@ -76,6 +76,7 @@ function vsws_core_parse_request() {
 		if (ds_map_find_value(request_db,"Request-Type") == "GET" || ds_map_find_value(request_db,"Request-Type") == "POST")
 		{
 			ds_map_add(request_db,"Request-Valid",true);
+			show_message_async("Request type is valid");
 		}
 		else
 		{

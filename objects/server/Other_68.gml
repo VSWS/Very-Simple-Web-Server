@@ -11,8 +11,6 @@ if (type == network_type_connect)
     connectedClients++;
 	timer_active[connection_id] = true;
 	timeout[connection_id] = 7200;
-	temp_content_length_check[connection_id] = false;
-	temp_content_length[connection_id] = 0;
 	original_request[connection_id] = ""; //Double check to make sure a previous session isn't still there.
 }
 
@@ -21,32 +19,13 @@ if (type == network_type_data)
 {
 	
 	vsws_core_request_grab();
-	
-	if(string_pos("Content-Length: ",original_request[connection_id]) != 0 && temp_content_length_check[connection_id] == false)
-	{
-		temp_content_length_check[connection_id] = true;
-		_temp_parse = explode("\n",original_request[connection_id]);
-		for(i = 0; temp_content_length[connection_id] == 0; i++)
-		{
-			if (string_pos("ontent-Length:",_temp_parse[i]) != 0)
-			{
-				_temp_parse = explode(":", _temp_parse[i]); 
-				_temp_parse[1] = string_replace_all(_temp_parse[1], " ", "");
-				temp_content_length[connection_id] = _temp_parse[1];
-				show_message_async(string(temp_content_length[connection_id]));
-			}
-		}
-		
-	}
-	
 	clipboard_set_text(original_request[connection_id]);
 	
 	if (vsws_core_request_terminated())
 	{
-		//show_message_async(string(string_byte_length(original_request[connection_id])));
-		clipboard_set_text(original_request[connection_id]);
+		
 		vsws_core_parse_request();
-		if (vsws_core_valid_check == true)
+		if (vsws_core_valid_check())
 		{
 			vsws_core_find_file();
 			vsws_core_cgi_switch();
@@ -71,7 +50,7 @@ if (type == network_type_data)
 		}
 		else
 		{
-			vsws_core_respond_dynamic("Invalid / Unsupported HTTP Request");
+			vsws_core_respond_dynamic("Unsupported or Malformed Request");
 		}
 		
 		vsws_core_response_cleanup();
