@@ -6,6 +6,8 @@ function vsws_core_config() {
 	date_set_timezone(timezone_utc); //Sets timezone to UTC - you might get some weird results if you change this. 
 
 	start_time = date_current_datetime();
+	
+	headless = false;
 
 	port = 80; //Sets the port for your server - port 80 is the default for websites, but others can be used!
 
@@ -24,8 +26,9 @@ function vsws_core_config() {
 		{
 			ini_open("vsws_config.ini");
 		
-			port = ini_read_real("core", "port", 80);
+			port = ini_read_real("core", "port", port);
 			directory = ini_read_string("core", "directory", "");
+			headless = ini_read_string("core", "headless", false);
 			php_enabled = ini_read_real("php", "enabled", false);
 			php_path = ini_read_string("php", "php_path", "");
 		
@@ -39,6 +42,7 @@ function vsws_core_config() {
 		
 			ini_write_string("core", "port", port);
 			ini_write_string("core", "directory", directory);
+			ini_write_string("core", "headless", headless);
 			ini_write_string("php", "enabled", php_enabled);
 			ini_write_string("php", "php_path", php_path);
 		
@@ -70,6 +74,11 @@ function vsws_core_init(){
 	counted_size = 0;
 
 	server_created = network_create_server_raw(network_socket_tcp, port, 99);
+	
+	if (headless == true)
+	{
+		draw_enable_drawevent(false);
+	}
 
 	if (server_created < 0)
 	{

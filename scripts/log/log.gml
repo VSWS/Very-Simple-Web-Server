@@ -9,9 +9,11 @@ function log(argument0) {
 	to_log = "["+string(tiny_time())+"] " + to_log;
 
 	//Opens the log file and writes the log request into it
-	log_file = file_text_open_append(working_directory + "vsws_access_log.txt"); 
+	log_file = file_text_open_append("vsws_access_log.txt"); 
 	file_text_write_string(log_file, to_log);
 	file_text_writeln(log_file);
+	show_debug_message(string(to_log));
+
 
 	//Limits the length of the in-server log display to 200 lines (this is to help conserve memory and performance!)
 	if (array_length_1d(log_string) > 200)
