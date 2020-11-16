@@ -33,7 +33,6 @@ if (type == network_type_data)
 				_temp_parse = explode(":", _temp_parse[i]); 
 				_temp_parse[1] = string_replace_all(_temp_parse[1], " ", "");
 				temp_content_length[connection_id] = _temp_parse[1];
-				//show_message_async(string(temp_content_length[connection_id]));
 			}
 		}
 		

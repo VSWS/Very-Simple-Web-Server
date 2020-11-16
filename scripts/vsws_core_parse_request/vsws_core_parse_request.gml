@@ -27,7 +27,7 @@ function vsws_core_parse_request() {
 	
 	if (_malformed_request == false)
 	{
-				show_message_async("not malformed alert")
+				//show_message_async("not malformed alert")
 	//Adds the rest of the values to the DS map
 	for(i = 1; i < (array_length_1d(request)-2); i++)
 	{
@@ -76,7 +76,7 @@ function vsws_core_parse_request() {
 		if (ds_map_find_value(request_db,"Request-Type") == "GET" || ds_map_find_value(request_db,"Request-Type") == "POST")
 		{
 			ds_map_add(request_db,"Request-Valid",true);
-			show_message_async("Request type is valid");
+			//show_message_async("Request type is valid");
 		}
 		else
 		{
@@ -86,6 +86,6 @@ function vsws_core_parse_request() {
 	else
 	{
 		ds_map_add(request_db,"Request-Valid",false);
-		show_message_async("Invalid");
+		//show_message_async("Invalid");
 	}
 }

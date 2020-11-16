@@ -3,6 +3,8 @@ draw_set_color(global.Theme_mainpage_fontcolor);
 
 //Output on your screen.
 
+draw_text(0,0,debug_draw);
+
 draw_text(50,percent(window_get_height(),10),"Since the server started "+how_long()+"ago...")
 draw_set_font(ui_font_big);
 draw_text(50,percent(window_get_height(),12),string(connectedClients)+" total connections \n"+string(counted_size*0.00000095367432)+" MB of data sent");

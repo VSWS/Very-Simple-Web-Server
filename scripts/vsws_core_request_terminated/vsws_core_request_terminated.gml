@@ -1,16 +1,37 @@
 // Checks to see if the client ended the request
 
 function vsws_core_request_terminated(){
-	if (temp_content_length_check == true)
+	if (temp_content_length_check[connection_id] == true)
 	{
-		_byte_check = explode("\n",original_request[connection_id])
-		if (string_byte_length(_byte_check[1]) = (temp_content_length[connection_id]))
+		_get_body = explode("\n",original_request[connection_id])
+		
+		_body = false;
+		_body_text = "";
+
+		for(_line = 0; _line < array_length(_get_body); _line++)
+		{
+			if(_body == false)
+			{
+				if (string_pos(":",_get_body[_line]) == 0 && _line != 0)
+				{
+					_body = true;
+				}
+			}
+			else
+			{
+				_body_text += _get_body[_line];
+			}
+		}
+		
+		debug_draw = string(_body_text);
+		//show_message_async(_body_text);
+		
+		if (string_byte_length(_body_text) = (temp_content_length[connection_id]))
 		{
 			return true;
 		}
 		else
 		{
-			show_message_async("I'm here, checking values and returning false for: "+string(string_byte_length(_byte_check[1])));
 			return false;
 		}
 	}

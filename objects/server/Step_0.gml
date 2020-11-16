@@ -12,7 +12,10 @@ for(i = 0; i < array_length(timer_active); i++)
 		{
 			timeout[i] = 0;
 			timer_active[i] = false;
-			//show_message_async("Connection Timed Out");
+			sock = timer_active[i];
+			vsws_core_respond_dynamic(@"408 Request Timeout
+			
+			");
 			original_request[i] = "";
 			network_destroy(i);
 		}
