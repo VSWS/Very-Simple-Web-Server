@@ -22,23 +22,28 @@ if (type == network_type_data)
 	
 	vsws_core_request_grab();
 	
-	if(string_pos("Content-Length: ",original_request[connection_id]) != 0 && temp_content_length_check[connection_id] == false)
+	if (verbose == true)
+	{
+		log("Verbose: "+string(original_request[connection_id]));
+	}
+	
+	/*if(string_pos("Content-Length: ",original_request[connection_id]) != 0 && temp_content_length_check[connection_id] == false)
 	{
 		temp_content_length_check[connection_id] = true;
 		_temp_parse = explode("\n",original_request[connection_id]);
 		for(i = 0; temp_content_length[connection_id] == 0; i++)
 		{
-			if (string_pos("Content-Length:",_temp_parse[i]) != 0)
+			if (string_pos("Content-Length:",string(_temp_parse[i])) != 0)
 			{
-				_temp_parse = explode(":", _temp_parse[i]); 
+				_temp_parse = explode(":", string(_temp_parse[i])); 
 				_temp_parse[1] = string_replace_all(_temp_parse[1], " ", "");
 				temp_content_length[connection_id] = _temp_parse[1];
 			}
 		}
 		
-	}
+	}*/
 	
-	clipboard_set_text(original_request[connection_id]);
+	//clipboard_set_text(original_request[connection_id]);
 	
 	if (vsws_core_request_terminated())
 	{
@@ -70,6 +75,7 @@ if (type == network_type_data)
 		else
 		{
 			vsws_core_respond_dynamic("Unsupported or Malformed Request");
+			log("Socket "+string(i)+" | Unsupported / Malformed Request: " + original_request[connection_id]);
 		}
 		
 		vsws_core_response_cleanup();
