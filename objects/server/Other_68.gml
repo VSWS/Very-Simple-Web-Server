@@ -7,13 +7,7 @@ var type = async_load[? "type"];
 //Adds the connection to our connection count.
 if (type == network_type_connect)
 {
-	connection_id = async_load[? "socket"];
-    connectedClients++;
-	timer_active[connection_id] = true;
-	timeout[connection_id] = 7200;
-	temp_content_length_check[connection_id] = false;
-	temp_content_length[connection_id] = 0;
-	original_request[connection_id] = ""; //Double check to make sure a previous session isn't still there.
+	vsws_core_connection_init(); //Initilizes the new connection
 }
 
 //If it's sending us data, we check if the client is saying something like "GET /somepage.html", all other requests are ignored in this version of VSWS.
@@ -67,8 +61,6 @@ if (type == network_type_data)
 		
 			vsws_core_respond();
 		
-			//show_message_async("eeyyyy, we got here");
-		
 			log("["+string(status_code)+"] "+async_load[? "ip"]+" " + ds_map_find_value(request_db,"Request-Type") + " " + ds_map_find_value(request_db,"Request-URL")) //Logs the action... to the log.
 			size_count(send_size); //Adds the size of the buffer to our count of how much we've sent since server start.
 		}
@@ -88,9 +80,5 @@ if (type == network_type_data)
 	
 if (type == network_type_disconnect)
 {
-	connection_id = async_load[? "socket"];
-	original_request[connection_id] = "";
-	timer_active[connection_id] = false;
-	timeout[connection_id] = 0;
-	network_destroy(connection_id);
+	vsws_core_connection_cleanup();
 }

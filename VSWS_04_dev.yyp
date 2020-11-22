@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"logo","path":"sprites/logo/logo.yy",},"order":0,},
     {"id":{"name":"spr_button","path":"sprites/spr_button/spr_button.yy",},"order":1,},
+    {"id":{"name":"vsws_core_connection_init","path":"scripts/vsws_core_connection_init/vsws_core_connection_init.yy",},"order":17,},
     {"id":{"name":"vsws_core_response_cleanup","path":"scripts/vsws_core_response_cleanup/vsws_core_response_cleanup.yy",},"order":14,},
     {"id":{"name":"spr_configure","path":"sprites/spr_configure/spr_configure.yy",},"order":2,},
     {"id":{"name":"spr_log","path":"sprites/spr_log/spr_log.yy",},"order":3,},
@@ -26,6 +27,7 @@
     {"id":{"name":"ui_font","path":"fonts/ui_font/ui_font.yy",},"order":0,},
     {"id":{"name":"vsws_core_cgi_switch","path":"scripts/vsws_core_cgi_switch/vsws_core_cgi_switch.yy",},"order":6,},
     {"id":{"name":"vsws_core_processor_io","path":"scripts/vsws_core_processor_io/vsws_core_processor_io.yy",},"order":4,},
+    {"id":{"name":"vsws_core_connection_cleanup","path":"scripts/vsws_core_connection_cleanup/vsws_core_connection_cleanup.yy",},"order":18,},
     {"id":{"name":"percent","path":"scripts/percent/percent.yy",},"order":2,},
     {"id":{"name":"vsws_core","path":"scripts/vsws_core/vsws_core.yy",},"order":3,},
     {"id":{"name":"ui_font_big","path":"fonts/ui_font_big/ui_font_big.yy",},"order":1,},
