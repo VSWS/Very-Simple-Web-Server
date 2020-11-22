@@ -1,4 +1,5 @@
 // Checks to see if the client ended the request
+//Testing Github integration
 
 function vsws_core_request_terminated(){
 	if (temp_content_length_check[connection_id] == true)
