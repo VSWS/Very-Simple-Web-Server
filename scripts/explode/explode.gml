@@ -12,7 +12,7 @@ function explode(argument0, argument1) {
 	/// GMLscripts.com/license
 	{
 	    arr = "";
-	    var del = argument0;
+	    var del = argument0; 
 	    var str = argument1 + del;
 	    var len = string_length(del);
 	    var ind = 0;
