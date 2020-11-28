@@ -48,7 +48,10 @@ function vsws_core_parse_request() {
 	if (body_line_add != "")
 	{
 		ds_map_add(request_db,"request_body",string(body_line_add));
+		//show_message_async(body_line_add);
 	}
+	
+	
 
 	if (!is_undefined(ds_map_find_value(request_db,"request_body")))
 	{

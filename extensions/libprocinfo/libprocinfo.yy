@@ -17,16 +17,26 @@
   "installdir": "",
   "files": [
     {"filename":"libprocinfo.dll","origname":"extensions\\ProcInfo.dll","init":"","final":"","kind":1,"uncompress":false,"functions":[
-        {"externalName":"process_execute","kind":12,"help":"process_execute(command)","hidden":false,"returnType":2,"argCount":1,"args":[
+        {"externalName":"process_execute","kind":12,"help":"process_execute(ind,command)","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
             1,
           ],"resourceVersion":"1.0","name":"process_execute","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"process_execute_async","kind":12,"help":"process_execute_async(command)","hidden":false,"returnType":2,"argCount":1,"args":[
+        {"externalName":"process_execute_async","kind":12,"help":"process_execute_async(ind,command)","hidden":false,"returnType":2,"argCount":1,"args":[
+            2,
             1,
           ],"resourceVersion":"1.0","name":"process_execute_async","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"process_previous","kind":12,"help":"process_previous()","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"process_previous","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"process_evaluate","kind":12,"help":"process_evaluate()","hidden":false,"returnType":1,"argCount":0,"args":[],"resourceVersion":"1.0","name":"process_evaluate","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"process_clear_pid","kind":12,"help":"process_clear_pid()","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"process_clear_pid","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"process_clear_out","kind":12,"help":"process_clear_out()","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"process_clear_out","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"process_previous","kind":12,"help":"process_previous(ind)","hidden":false,"returnType":2,"argCount":0,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"process_previous","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"process_evaluate","kind":12,"help":"process_evaluate(ind)","hidden":false,"returnType":1,"argCount":0,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"process_evaluate","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"process_clear_pid","kind":12,"help":"process_clear_pid(ind)","hidden":false,"returnType":2,"argCount":0,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"process_clear_pid","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"process_clear_out","kind":12,"help":"process_clear_out(ind)","hidden":false,"returnType":2,"argCount":0,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"process_clear_out","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"pid_from_self","kind":12,"help":"pid_from_self()","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"pid_from_self","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"ppid_from_self","kind":12,"help":"ppid_from_self()","hidden":false,"returnType":2,"argCount":0,"args":[],"resourceVersion":"1.0","name":"ppid_from_self","tags":[],"resourceType":"GMExtensionFunction",},
         {"externalName":"path_from_pid","kind":12,"help":"path_from_pid(pid)","hidden":false,"returnType":1,"argCount":1,"args":[
@@ -81,16 +91,25 @@
             1,
             1,
           ],"resourceVersion":"1.0","name":"wid_set_pwid","tags":[],"resourceType":"GMExtensionFunction",},
-        {"externalName":"echo","kind":1,"help":"echo(expression)","hidden":false,"returnType":1,"argCount":0,"args":[
+        {"externalName":"echo","kind":1,"help":"echo(ind,expression)","hidden":false,"returnType":1,"argCount":0,"args":[
+            2,
             1,
           ],"resourceVersion":"1.0","name":"echo","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"process_current","kind":1,"help":"process_current(ind)","hidden":false,"returnType":2,"argCount":0,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"process_current","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"process_output","kind":1,"help":"process_output(ind)","hidden":false,"returnType":1,"argCount":0,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"process_output","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[],"ProxyFiles":[
         {"TargetMask":1,"resourceVersion":"1.0","name":"libprocinfo.dylib","tags":[],"resourceType":"GMProxyFile",},
         {"TargetMask":7,"resourceVersion":"1.0","name":"libprocinfo.so","tags":[],"resourceType":"GMProxyFile",},
       ],"copyToTargets":202375362,"order":[
         {"name":"process_execute","path":"extensions/libprocinfo/libprocinfo.yy",},
         {"name":"process_execute_async","path":"extensions/libprocinfo/libprocinfo.yy",},
+        {"name":"process_current","path":"extensions/libprocinfo/libprocinfo.yy",},
         {"name":"process_previous","path":"extensions/libprocinfo/libprocinfo.yy",},
+        {"name":"process_output","path":"extensions/libprocinfo/libprocinfo.yy",},
         {"name":"process_evaluate","path":"extensions/libprocinfo/libprocinfo.yy",},
         {"name":"process_clear_pid","path":"extensions/libprocinfo/libprocinfo.yy",},
         {"name":"process_clear_out","path":"extensions/libprocinfo/libprocinfo.yy",},
@@ -121,10 +140,18 @@
         {"externalName":"env_from_pid","kind":2,"help":"env_from_pid(pid)","hidden":false,"returnType":1,"argCount":0,"args":[
             2,
           ],"resourceVersion":"1.0","name":"env_from_pid","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"cwd_from_pid","kind":2,"help":"cwd_from_pid(pid)","hidden":false,"returnType":1,"argCount":0,"args":[
+            2,
+          ],"resourceVersion":"1.0","name":"cwd_from_pid","tags":[],"resourceType":"GMExtensionFunction",},
+        {"externalName":"env_from_pid_ext","kind":2,"help":"env_from_pid_ext(pid,name)","hidden":false,"returnType":1,"argCount":0,"args":[
+            2,
+            1,
+          ],"resourceVersion":"1.0","name":"env_from_pid_ext","tags":[],"resourceType":"GMExtensionFunction",},
       ],"constants":[],"ProxyFiles":[],"copyToTargets":194,"order":[
         {"name":"env_from_pid","path":"extensions/libprocinfo/libprocinfo.yy",},
+        {"name":"env_from_pid_ext","path":"extensions/libprocinfo/libprocinfo.yy",},
+        {"name":"cwd_from_pid","path":"extensions/libprocinfo/libprocinfo.yy",},
       ],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
-    {"filename":"getenv.exe","origname":"","init":"","final":"","kind":4,"uncompress":false,"functions":[],"constants":[],"ProxyFiles":[],"copyToTargets":64,"order":[],"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMExtensionFile",},
   ],
   "classname": "",
   "tvosclassname": "",
@@ -150,7 +177,7 @@
   "tvosThirdPartyFrameworkEntries": [],
   "IncludedResources": [],
   "androidPermissions": [],
-  "copyToTargets": 66,
+  "copyToTargets": 202375362,
   "iosCocoaPods": "",
   "tvosCocoaPods": "",
   "iosCocoaPodDependencies": "",
