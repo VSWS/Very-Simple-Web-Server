@@ -12,6 +12,7 @@
     {"id":{"name":"log","path":"scripts/log/log.yy",},"order":3,},
     {"id":{"name":"vsws_button","path":"scripts/vsws_button/vsws_button.yy",},"order":0,},
     {"id":{"name":"size_count","path":"scripts/size_count/size_count.yy",},"order":1,},
+    {"id":{"name":"libprocinfo","path":"extensions/libprocinfo/libprocinfo.yy",},"order":0,},
     {"id":{"name":"vsws_core_find_file","path":"scripts/vsws_core_find_file/vsws_core_find_file.yy",},"order":0,},
     {"id":{"name":"vsws_core_request_grab","path":"scripts/vsws_core_request_grab/vsws_core_request_grab.yy",},"order":10,},
     {"id":{"name":"vsws_core_respond","path":"scripts/vsws_core_respond/vsws_core_respond.yy",},"order":8,},
@@ -44,7 +45,6 @@
     {"id":{"name":"vis_log","path":"objects/vis_log/vis_log.yy",},"order":2,},
     {"id":{"name":"server_room","path":"rooms/server_room/server_room.yy",},"order":0,},
     {"id":{"name":"vsws_core_valid_check","path":"scripts/vsws_core_valid_check/vsws_core_valid_check.yy",},"order":15,},
-    {"id":{"name":"libprocinfo","path":"extensions/libprocinfo/libprocinfo.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Windows","path":"options/windows/options_windows.yy",},

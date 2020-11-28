@@ -23,8 +23,8 @@ function vsws_core_request_terminated(){
 			}
 		}
 		
-		debug_draw = string(_body_text);
-		//show_message_async(_body_text);
+		test_buff = buffer_create(1,buffer_grow,1);
+		buffer_write(test_buff,buffer_string,_body_text);
 		
 		if (string_byte_length(_body_text) = (temp_content_length[connection_id]))
 		{
