@@ -20,7 +20,7 @@ if (type == network_type_data)
 	{
 		log("Verbose: "+string(original_request[connection_id]));
 	}
-	
+	/*
 	if(string_pos("Content-Length: ",original_request[connection_id]) != 0 && temp_content_length_check[connection_id] == false)
 	{
 		temp_content_length_check[connection_id] = true;
@@ -34,7 +34,7 @@ if (type == network_type_data)
 				temp_content_length[connection_id] = _temp_parse[1];
 			}
 		}
-	}
+	}*/
 	
 	//clipboard_set_text(original_request[connection_id]);
 	
